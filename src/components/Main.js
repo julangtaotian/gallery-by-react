@@ -29,8 +29,8 @@ function getRangeRandom (low, high) {
 	return Math.ceil(Math.random() * (high - low) +low);
 }
 
-/* 
- *获取0~30°之间的一个任意正负值 
+/*
+ *获取0~30°之间的一个任意正负值
  */
 function get30DegRandom () {
 	return ((Math.random() > 0.5 ? '' : '-') + Math.ceil(Math.random() * 30));
@@ -77,9 +77,9 @@ var ImgFigure = React.createClass({
 		
 		//如果图片的旋转角度有值并且不为0，添加旋转角度
 		if (this.props.arrange.rotate) {
-			(['-moz-','-ms-','-webkit-','']).forEach(function (value) {
+			(['-moz-','-ms-','-webkit-','']).forEach(function () {
 				{
-					styleObj['transform'] = 'rotate(' + this.props.arrange.rotate + 'deg)';	
+					styleObj['transform'] = 'rotate(' + this.props.arrange.rotate + 'deg)';
 				}
 			}.bind(this));
 		}
@@ -97,13 +97,13 @@ var ImgFigure = React.createClass({
 				<figcaption>
 					<h2 className="img-title">{this.props.data.title}</h2>
 					<div className='img-title' onClick={this.handleClick}>
-						<p>	
+						<p>
 							{this.props.data.desc}
 						</p>
 					</div>
 				</figcaption>
 			</figure>
-		); 
+		);
 	}
 });
 
@@ -125,7 +125,7 @@ var AppComponent = React.createClass({
 	},
 	
 	/*
-	 * 翻转图片 
+	 * 翻转图片
 	 * @paran index 输入当前被执行inverse操作的图片对应的图片信息数组的index值
 	 * @return {Function} 这是一个闭包函数， 其内return一个真正待被执行的函数
 	 */
@@ -158,7 +158,7 @@ var AppComponent = React.createClass({
 			vPosRangeX = vPosRange.x,
 			
 			imgsArrangeTopArr = [],
-			topImgNum = Math.ceil(Math.random() * 2), //取一个或者不取
+			topImgNum = Math.ceil(Math.random() * 1), //取一个或者不取
 			topImgSpliceIndex = 0,
 			imgsArrangeCenterArr = imgsArrangeArr.splice(centerIndex, 1);
 			
@@ -181,7 +181,7 @@ var AppComponent = React.createClass({
 				imgsArrangeTopArr[index] = {
 					pos:{
 						top:getRangeRandom(vPosRangeTopY[0], vPosRangeTopY[1]),
-						left:getRangeRandom(vPosRangeX[0], vPosRangeX[1])	
+						left:getRangeRandom(vPosRangeX[0], vPosRangeX[1])
 					},
 					rotate :get30DegRandom(),
 					isCenter:false
@@ -261,7 +261,7 @@ var AppComponent = React.createClass({
 			halfImgW = Math.ceil(imgW / 2),
 			halfImgH = Math.ceil(imgH / 2);
 			
-		//计算中心图片的位置点	
+		//计算中心图片的位置点
 		this.Constant.centerPos = {
 			left:halfStageW - halfImgW,
 			top:halfStageH - halfImgH
@@ -300,8 +300,8 @@ var AppComponent = React.createClass({
 					isCenter:false
 				}
 			}
-			imgFigures.push(<ImgFigure key={index} data={value} 
-				ref={"imgFigure" + index} arrange={this.state.imgsArrangeArr[index]} 
+			imgFigures.push(<ImgFigure key={index} data={value}
+				ref={'imgFigure' + index} arrange={this.state.imgsArrangeArr[index]}
 				inverse={this.inverse(index)} center={this.center(index)}/>);
 		}.bind(this));
 	  	
