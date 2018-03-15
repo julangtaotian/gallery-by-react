@@ -12,7 +12,7 @@ html, body {
 .stage{
 	position: relative;
 	width: 100%;
-	height: 680px;
+	height: 600px;
 }
 /*stage -- end*/
 
@@ -21,9 +21,49 @@ html, body {
 	position: relative;
 	width: 100%;
 	height: 100%;
+	perspective: 1800px;
 	overflow: hidden;
 	background-color: #ddd;
 }
+
+.img-figure{
+	position: absolute;
+	width: 260px;
+	height: 300px;
+	margin: 0;
+	padding: 40px;
+	box-sizing: border-box;
+	cursor: pointer;
+	transform-style:preserve-3d;
+	transition:transform .6s ease-in-out, left .6s ease-in-out, top .6s ease-in-out;
+	transform-origin:0 50% 0;
+	background: #ffffff;
+}
+.is-inverse{
+	transform: translate(260px) rotateY(180deg);
+}
+.img-figure img{
+	width: 180px;
+	height: 200px;
+}
+figcaption{
+	text-align: center;
+}
+.img-title{
+	margin-top: 20px;
+	color: #a7a0a2;
+	font-size: 16px;
+}
+.img-figure div.img-title{
+	transform: rotateY(180deg);
+	width: 100%;
+	height: 100%;
+	background: #ffffff;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
 /*iname --end*/
 
 /*controller -- start*/
